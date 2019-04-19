@@ -1,0 +1,15 @@
+# coding: utf-8
+sentence = raw_input("¬ход: ").decode('utf-8')
+if sentence:
+    char_counts = {}
+    for c in sentence:
+        if c not in char_counts:
+           char_counts[c] = 0
+        char_counts[c] += 1
+
+    char_counts = list(char_counts.items())
+    char_counts.sort(key=lambda item: item[1], reverse=True)
+    print(char_counts[0][0])
+    print(char_counts)
+else:
+    print("INVALID INPUT")

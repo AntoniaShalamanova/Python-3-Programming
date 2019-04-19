@@ -1,0 +1,65 @@
+import csv
+
+FILE_NAME = 'catalog_sample.csv'
+COLUMN_NAMES = ('cat_number', 'product_name', 'product_colors', 'sex', 'price')
+
+with open(FILE_NAME, 'r') as infile:
+    infile_csv = csv.reader(infile, delimiter=',')
+
+    prices_sums = {}
+    prices_counts = {}
+
+    for row_num, row in enumerate(infile_csv):
+        mapped_row = dict(zip(COLUMN_NAMES, row))
+        product_sex = mapped_row['sex']
+        product_price = mapped_row['price']
+        try:
+            prices_sums[product_sex] += float(product_price)
+            prices_counts[product_sex] += 1
+        except:
+                prices_sums[product_sex] = float(product_price)
+                prices_counts[product_sex] = 1
+
+    for  sex in prices_sums.keys():
+         prices_sum = prices_sums[sex]
+         product_count = prices_counts[sex]
+         average_price = prices_sum/product_count
+
+         print("Average price of {0}'s products: {1:.2f}".format(sex, average_price))
+
+    infile.close()
+
+------------------------------------------------------------------------------------------------
+
+import csv
+
+FILE_NAME = 'catalog_sample.csv'
+COLUMN_NAMES = ('cat_number', 'product_name', 'product_colors', 'sex', 'price')
+
+with open(FILE_NAME, 'r') as infile:
+    infile_csv = csv.reader(infile, delimiter=',')
+
+    prices_sums = {}
+    prices_counts = {}
+
+    for row_num, row in enumerate(infile_csv):
+        mapped_row = dict(zip(COLUMN_NAMES, row))
+        product_sex = mapped_row['sex']
+        product_price = mapped_row['price']
+
+        prices_sums[product_sex] = float(product_price)
+
+        if product_sex not in prices_sums:
+            prices_sums[product_sex] = 0
+        prices_sums[product_sex] += float[product_price]
+
+        prices_counts[product_sex] = prices_counts.get(product_sex, 0)+1
+
+    for  sex in prices_sums.keys():
+         prices_sum = prices_sums[sex]
+         product_count = prices_counts[sex]
+         average_price = prices_sum/product_count
+
+         print("Average price of {0}'s products: {1:.2f}".format(sex, average_price))
+
+    infile.close()

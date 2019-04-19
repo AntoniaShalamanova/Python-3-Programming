@@ -1,0 +1,40 @@
+import turtle
+side=40
+x=0
+y=0
+for i in range(4):
+    y=y+40
+    for a in range(8):
+        if a % 2==0:
+            turtle.begin_fill()
+        turtle.forward(side)
+        turtle.left(90)
+        turtle.forward(side)
+        turtle.left(90)
+        turtle.forward(side)
+        turtle.left(90)
+        turtle.forward(side)
+        turtle.left(90)
+        turtle.end_fill()
+        turtle.forward(side)
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+    y=y+40
+    for a in range(8):
+        if a % 2!=0:
+            turtle.begin_fill()
+        turtle.forward(side)
+        turtle.left(90)
+        turtle.forward(side)
+        turtle.left(90)
+        turtle.forward(side)
+        turtle.left(90)
+        turtle.forward(side)
+        turtle.left(90)
+        turtle.end_fill()
+        turtle.forward(side)
+    turtle.penup()
+    turtle.goto(x,y)
+    turtle.pendown()
+turtle.exitonclick()

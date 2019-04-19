@@ -1,0 +1,8 @@
+import turtle
+length_user = input("enter a length: ")
+length = int(length_user)
+for a in range(4):
+    turtle.speed('slow')
+    turtle.forward(length)
+    turtle.left(90)
+turtle.done()

@@ -1,0 +1,111 @@
+# coding: utf-8
+from catalog import load_catalog
+from sales import load_sales, KEY_TS, KEY_PRICE
+
+CATALOG_FILENAME = 'catalog.csv'
+SALES_FILENAME = 'sales-10K.csv'
+
+
+def main():
+    catalog = load_catalog(CATALOG_FILENAME)
+    sales = load_sales(SALES_FILENAME)
+    print("Analysis")
+    print_total_stats(sales)
+    print_top_by_category(sales)
+    print_top_by_city(sales)
+    print_top_by_hour(sales)
+    # pprint(sales[:10])
+
+
+def print_total_stats(sales):
+    """
+
+    :param sales:
+    :return:
+    """
+    total_count = len(sales)
+    total_amount = 0
+
+    min_timestamp = None
+    max_timestamp = None
+
+    for sale in sales:  # see sales.load_sales() for details
+        total_amount += sale[KEY_PRICE]
+        ts = sale[KEY_TS]
+
+        if min_timestamp is None or ts < min_timestamp:
+            min_timestamp = ts
+        if max_timestamp is None or ts > max_timestamp:
+            max_timestamp = ts
+
+    # if total_count > 0:
+    #     average_price = total_amount / total_count
+    # else:
+    #     average_price = None
+
+    print("""
+Обобщение
+---------
+    Общ брой продажби: {total_count}
+    Общо сума продажби: {total_amount:.2f} €
+    Средна цена на продажба: {avegage_price} €
+    Начало на период на данните: {min_ts}
+    Край на период на данните: {max_ts}
+""".format(
+        total_count=total_count,
+        total_amount=total_amount,
+        avegage_price=total_amount / total_count if total_count else None,
+        min_ts=min_timestamp,
+        max_ts=max_timestamp,
+    ))
+
+
+def print_top_by_category(sales):
+    """
+
+    :param sales:
+    :return:
+    """
+    amounts_by_category = {}  # key : category name  ,  value : accumulated sum of sales
+
+    for sale in sales:
+        item_id = sale[KEY_ITEM_ID]
+        price = sale[KEY_PRICE]
+        category_name = catalog.get(item_id, None)
+        if category_name not in amounts_by_category:
+            amounts_by_category[category_name] = 0
+        amounts_by_category[category_name] += price
+
+    amounts_by_category_sorted = []
+    for category_name, total_amount in amounts_by_category.items():
+        amounts_by_category_sorted.append((total_amount, category_name))
+
+    amounts_by_category_sorted.sort(reverse=True)
+
+
+    print("""
+    Сума на продажби по категории (top 5)
+-----------------------------
+""")
+    for total_amount, category_name in amounts_by_category_sorted[:5]:
+        print("     {}: {:.2f} €".format(category_name, total_amount))
+
+
+def print_top_by_city(sales):
+    """
+
+    :param sales:
+    :return:
+    """
+
+
+def print_top_by_hour(sales):
+    """
+
+    :param sales:
+    :return:
+    """
+
+
+if __name__ == '__main__':
+    main()

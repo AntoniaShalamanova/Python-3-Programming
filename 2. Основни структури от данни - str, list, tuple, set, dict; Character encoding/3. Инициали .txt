@@ -1,0 +1,15 @@
+name = raw_input("Enter a full name: ")
+name = name.decode('utf8')
+initials = ""
+for i in name:
+    if i.isupper():
+        initials = initials + i + ". "
+print(initials)
+
+-----------------------------------------------------------------------
+Бухтичка ООП
+
+name = raw_input("Enter a  name: ").decode('utf8')#koda na stoqn4eto
+second_name = raw_input("Enter a  second name: ").decode('utf8')
+third_name = raw_input("Enter a  third name: ").decode('utf8')
+print(name[0] + "." + second_name[0] + "." + third_name[0] + ".")

@@ -1,0 +1,10 @@
+import turtle
+length_user = input("enter a length: ")
+length = int(length_user)
+degrees_user = input("enter a degrees: ")
+degrees = int(degrees_user)
+counter=0
+while counter<1:    #while 'true':
+   turtle.forward(length)
+   turtle.left(degrees)
+turtle.done()

@@ -1,0 +1,2 @@
+sentence_user = raw_input("Enter a sentence: ")
+print(sentence_user[:10] + '...')

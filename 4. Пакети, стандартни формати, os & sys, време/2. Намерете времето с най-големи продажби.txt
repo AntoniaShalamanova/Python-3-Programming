@@ -1,0 +1,28 @@
+with open ('sales.csv','r') as sales:
+    from datetime import datetime
+
+price
+    for line in sales:
+                stripped_line = line.strip()
+                list_of_the_line = stripped_line.split(',')
+                dt = list_of_the_line[0]
+                dt = dt.replace(hour=0, minute=0, second=0, microsecond=0)
+        while
+
+
+'''
+sales_count_by_day = {}
+
+...
+
+dt = datetime.now()
+
+
+dt = dt.replace(hour=0, minute=0, second=0, microsecond=0)
+
+...
+
+if dt not in sales_by_day:
+    sales_count_by_day[dt] = 1
+else:
+    sales_count_by_day[dt] += 1'''

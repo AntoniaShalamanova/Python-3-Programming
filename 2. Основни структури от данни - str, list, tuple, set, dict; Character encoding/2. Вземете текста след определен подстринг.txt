@@ -1,0 +1,10 @@
+sentence = raw_input("Enter a sentence: ")
+deliver = ""
+while deliver == "" :
+    deliver = raw_input("Enter a word of this sentence: ")
+if sentence.find(deliver)>0:
+    length = len(deliver)
+    start_position = sentence.find(deliver)
+    print(sentence[start_position+length:])
+else:
+    print("The deliver is not finded")

@@ -1,0 +1,26 @@
+import csv
+
+count = 0
+try:
+    data_filename = input()
+    percent = input()
+    percent = float(percent)
+
+    with open(data_filename) as f:
+        reader = csv.reader(f)
+        previous_price = None
+        for row in reader:
+            count = count + 1
+            current_ts, current_price = row
+            current_price = float(current_price)
+            if previous_price is not None:
+                if current_price - (current_price / 100 * percent) > previous_price:
+                    print(current_ts, current_price)
+                else:
+                    print ("NO DRASTIC CHANGES; RECORDS COUNT: {0}".format(count))
+
+            previous_price = current_price
+
+except Exception as e:
+    print("INVALID INPUT")
+    print(e)

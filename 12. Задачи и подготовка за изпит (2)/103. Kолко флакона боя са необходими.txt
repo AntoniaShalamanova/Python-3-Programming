@@ -1,0 +1,23 @@
+import math
+input_h = input()
+input_w = input()
+paint_box = float(1.76)
+
+def main():
+    try:
+       h = float(input_h)
+       w = float(input_w)
+       if(h>0 and w>0):
+        s= h * w
+        count = s/paint_box
+        print(math.ceil(count))
+       else:
+             print("INVALID INPUT")
+
+
+    except:
+        print("INVALID INPUT")
+
+
+if __name__ == '__main__':
+    main()

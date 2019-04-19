@@ -1,0 +1,12 @@
+current_price = []
+average_price = 0
+with open('catalog_sample.csv') as f:
+    for line in f:
+        line = line.strip('\n')
+        current_line_list = line.split(',')
+        print(current_line_list)
+        current_price = current_line_list.pop(6)
+        i = len(current_price)
+        current_price = float(current_price)
+        average_price = (average_price + current_price) / i
+print("Average price: ", average_price)

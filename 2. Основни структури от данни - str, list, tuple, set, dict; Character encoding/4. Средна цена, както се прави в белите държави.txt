@@ -1,0 +1,23 @@
+prices = []
+min_values = 10
+while True:
+    user_input = raw_input("Enter a price or stop: ")
+    if user_input == 'stop':
+        if len(prices) >= min_values:
+            print("Calculate: ")
+            prices.remove(min(prices))
+            prices.remove(max(prices))
+            print("Min price: {price}".format(price=min(prices)))
+            print("Max price: {price}".format(price=max(prices)))
+            print("Average price: {price}".format(price=sum(prices)/len(prices)))
+            break
+        else:
+            print("Enter at least {min} values".format(min=min_values))
+            continue
+    else:
+        user_input = float(user_input)
+        if user_input > 0 and user_input not in prices:
+            prices.append(user_input)
+        else:
+            continue
+

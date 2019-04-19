@@ -1,0 +1,18 @@
+import math
+bike_price = input()
+get_money_every_day = input()
+lay_out_money_10_days = input()
+
+try:
+    bike_price = float(bike_price)
+    get_money_every_day = float(get_money_every_day)
+    lay_out_money_10_days = float(lay_out_money_10_days)
+    lay_out_money_every_day = lay_out_money_10_days / 10
+    if get_money_every_day < lay_out_money_every_day:
+        print("NO BIKE FOR YOU")
+    else:
+        save_money_every_day = get_money_every_day - lay_out_money_every_day
+        day = 100 / save_money_every_day
+        print(math.ceil(day))
+except:
+    print("INVALID INPUT")

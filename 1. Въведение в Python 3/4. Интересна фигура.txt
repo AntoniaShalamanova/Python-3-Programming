@@ -1,0 +1,43 @@
+import turtle
+length_user = input("enter a length: ")
+length = int(length_user)
+while 'true':
+    turtle.color('red')
+    turtle.left(36)
+    turtle.forward(length)
+    for a in range(4):
+        turtle.right(144)
+        turtle.forward(length)
+    turtle.right(162)
+turtle.done()
+
+
+-----------------------------------------------------------------
+
+import turtle
+length_user = input("enter a length: ")
+length = int(length_user)
+while 'true':
+    turtle.color('red')
+    turtle.left(36)
+    turtle.forward(length)
+    for a in range(4):
+      turtle.right(144)
+      turtle.forward(length)
+    turtle.right(176)
+turtle.done()
+
+-----------------------------------------------------------------
+
+import turtle
+length_user = input("enter a length: ")
+length = int(length_user)
+while 'true':
+    turtle.color('red')
+    turtle.left(36)
+    turtle.forward(length)
+    for a in range(4):
+      turtle.right(144)
+      turtle.forward(length)
+    turtle.right(173)
+turtle.done()

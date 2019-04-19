@@ -1,0 +1,21 @@
+input_str = input()
+
+try:
+    list = []
+    for number in input_str:
+        if number == " ":
+            continue
+        else:
+            number = list(number)
+            print(number)
+
+        """
+        previous_number = None
+        if previous_number is not None:
+            if number < previous_number:
+               print(number[])
+        """
+
+except Exception as e :
+    print("INVALID INPUT")
+    print(e)
